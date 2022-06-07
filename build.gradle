@@ -21,6 +21,24 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
+publishing {
+    repositories {
+        maven {
+            name = 'GitHubPackages'
+            url = uri("https://maven.pkg.github.com/WiIIiam278/MPDBDataConverter")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
