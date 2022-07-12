@@ -1,2 +1,2 @@
 before_install:
-  - 'bash ./.scripts/install-mpdb-converter'
+  - 'bash ./.scripts/self-install'
