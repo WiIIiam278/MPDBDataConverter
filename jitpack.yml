@@ -1,0 +1,2 @@
+before_install:
+  - 'bash ./.scripts/install-mpdb-converter'
